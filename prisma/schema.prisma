@@ -19,5 +19,32 @@ model User {
   username String @unique
   password String
   createdAt DateTime @default(now())
+  categories Category[]
+  products   Product[]
+}
+
+model Category {
+  id           Int      @id @default(autoincrement())
+  nameCategory String
+  userId       Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  products Product[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  nameProduct String
+  stock       Int @default(0)     // Cambiado a Int
+  price       Float
+  userId      Int
+  categoryId  Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id])
+  category  Category @relation(fields: [categoryId], references: [id])
 }
 

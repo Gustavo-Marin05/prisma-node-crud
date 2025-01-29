@@ -82,6 +82,11 @@ export const getprofile = async (userID) => {
 
 export const edidprofilebyid = async (userID, data) => {
   try {
+    if (data.password) {
+       // Número de rondas de sal para el hashing
+      data.password = await bcrypt.hash(data.password, 10);
+    }
+
     const useredit = await prisma.user.update({
       where: { id: userID },
       data: data,
