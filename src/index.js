@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import authRoutes from './auth/routes/auth.routes.js';
 import ProductRoutes from './products/routes/product.routes.js';
 import CategoryRoutes from './category/routes/category.routes.js';
+import salesRouthes from './sales/routes/sales.routes.js';
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(morgan('dev'))
 app.use('/api', authRoutes);//todas las rutas de autentificacion
 app.use('/api',ProductRoutes)//todas la rutas de productos
 app.use('/api',CategoryRoutes);//todas las rutas de categorias
+app.use('/api',salesRouthes)//rutas de las ventas
 
 app.listen(PORT, () => {
   console.log(`Conectado al puerto ${PORT}`);

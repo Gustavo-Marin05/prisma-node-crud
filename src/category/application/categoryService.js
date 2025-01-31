@@ -126,3 +126,14 @@ export const findCategoryByname =async(categoryname)=>{
     console.log(error)
   }
 }
+
+
+//saber si la categoria existe
+export const checkCategoryExists = async (categoryId) => {
+  const category = await prisma.category.findUnique({
+    where: {
+      id: Number(categoryId)
+    }
+  });
+  return category;
+};
