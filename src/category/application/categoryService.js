@@ -50,7 +50,8 @@ export const getaCategory =async (categoryid,userid)=>{
         userId:userid.id
       },
       include:{
-        user:true
+        user:true,
+        products:true
       }
     });
 

@@ -39,3 +39,40 @@ export const createSales = async (userid, products) => {//este products es el re
     console.log(error);
   }
 };
+
+
+export const getallsales=async (userID)=>{
+  try {
+    const sales=await prisma.sales.findMany({
+      where:{
+        userId:userID.id
+      },
+      include:{
+        saleItems:true
+      }
+    })
+    
+    return sales;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getasale= async (saleId,userId)=>{
+  try {
+    const getsale= await prisma.sales.findUnique({
+      where:{
+        id:Number(saleId.id),
+        userId:userId.id     
+      },
+      include:{
+        saleItems:true
+      }
+
+    })
+    return getsale;
+  } catch (error) {
+    console.log(error);
+  }
+
+}
