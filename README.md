@@ -9,6 +9,7 @@ tambien se incorpora un metodo de autentificion para los usuario que estan logea
 
 
 si quieres probar la aplicacion deberas descargar el zip o simplemmente clonar el repositorio
+si quieres ver el codigo mas esta en la carpeta raiz de "/src"
 
 despues de clonar o descargar el zip se debera instalar todas las dependencias con un simple comando que es:  
 npm install
